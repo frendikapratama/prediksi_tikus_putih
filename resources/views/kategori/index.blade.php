@@ -1,7 +1,7 @@
 <!-- resources/views/kategori/index.blade.php -->
 @extends('layouts.app')
 
-@section('title', 'Kategori Size')
+@section('title', 'Kelola Kategori Size')
 
 @section('content')
 
@@ -12,7 +12,7 @@
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-primary btn-icon-text"
                         onclick="window.location.href='{{ route('kategori.create') }}'">
-                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Add Kategori
+                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Tambah Kategori
                     </button>
                 </div>
                 <div class="table-responsive">

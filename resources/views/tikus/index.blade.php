@@ -10,7 +10,7 @@
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-primary btn-icon-text"
                         onclick="window.location.href='{{ route('tikus.create') }}'">
-                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Add Data Tikus
+                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Tambah Data Tikus
                     </button>
                 </div>
                 <div class="table-responsive">

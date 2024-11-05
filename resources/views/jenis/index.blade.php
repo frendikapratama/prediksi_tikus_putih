@@ -1,7 +1,7 @@
 <!-- resources/views/jenis/index.blade.php -->
 @extends('layouts.app')
 
-@section('title', 'Jenis Tikus')
+@section('title', 'Kelola Jenis Tikus')
 
 @section('content')
 
