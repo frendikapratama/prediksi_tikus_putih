@@ -9,37 +9,37 @@ class JenisController extends Controller
 {
     public function index()
     {
-        $Jenis = Jenis::all();
-        return view('Jenis.index', compact('Jenis'));
+        $jenis = Jenis::all();
+        return view('jenis.index', compact('jenis'));
     }
 
     public function create()
     {
-        return view('Jenis.create');
+        return view('jenis.create');
     }
 
     public function store(Request $request)
     {
         Jenis::create($request->all());
-        return redirect()->route('Jenis.index');
+        return redirect()->route('jenis.index');
     }
 
     public function edit($id)
     {
-        $kategoriSize = Jenis::find($id);
-        return view('Jenis.edit', compact('kategoriSize'));
+        $jenis = Jenis::find($id);
+        return view('jenis.edit', compact('jenis'));
     }
 
     public function update(Request $request, $id)
     {
-        $kategoriSize = Jenis::find($id);
-        $kategoriSize->update($request->all());
-        return redirect()->route('Jenis.index');
+        $jenis = Jenis::find($id);
+        $jenis->update($request->all());
+        return redirect()->route('jenis.index');
     }
 
     public function destroy($id)
     {
         Jenis::find($id)->delete();
-        return redirect()->route('Jenis.index');
+        return redirect()->route('jenis.index');
     }
 }

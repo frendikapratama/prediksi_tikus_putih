@@ -13,9 +13,6 @@
                         <i class="mdi mdi-file-check btn-icon-prepend"></i> Add Data Tikus
                     </button>
                 </div>
-
-
-                </p>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
