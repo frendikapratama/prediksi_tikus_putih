@@ -20,7 +20,7 @@
                                 <th> No </th>
                                 <th> Jenis </th>
                                 <th> Kateogori size </th>
-                                <th> Banyak Tikus </th>
+                                <th> Jumlah Produksi Tikus </th>
                                 <th> Action </th>
                             </tr>
                         </thead>
