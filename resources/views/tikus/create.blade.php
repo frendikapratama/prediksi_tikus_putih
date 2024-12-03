@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="jenis_id">Jenis</label>
                         <select class="form-control text-light" id="jenis_id" name="jenis_id" required>
-                            <option value="">Select Jenis</option>
+                            <option value="">Pilih Jenis</option>
                             @foreach ($jenis as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -19,7 +19,7 @@
                     <div class="form-group">
                         <label for="kategori_size_id">Kategori Size</label>
                         <select class="form-control text-light" id="kategori_size_id" name="kategori_size_id" required>
-                            <option value="">Select Jenis</option>
+                            <option value="">Pilih Kategori Size</option>
                             @foreach ($kategoriSize as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -28,12 +28,12 @@
                     <div class="form-group">
                         <label for="total_jantan">Total Jantan</label>
                         <input type="number" class="form-control text-light" name="total_jantan" id="total_jantan"
-                            placeholder="Input Total" value="0">
+                            placeholder="Input Total Jantan">
                     </div>
                     <div class="form-group">
                         <label for="total_betina">Total Betina</label>
                         <input type="number" class="form-control text-light" name="total_betina" id="total_betina"
-                            placeholder="Input Total"value="0">
+                            placeholder="Input Total Betina">
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-dark">

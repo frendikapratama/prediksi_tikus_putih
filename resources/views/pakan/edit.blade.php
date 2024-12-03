@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="kategori_size_id" class="form-label">Kategori Size</label>
                         <select name="kategori_size_id" id="kategori_size_id" class="form-control text-light" required>
-                            <option value="">Pilih lect Kategori Size</option>
+                            <option value="">Pilih Kategori Size</option>
                             @foreach ($kategoriSize as $item)
                                 <option value="{{ $item->id }}"
                                     {{ $item->id == $pakan->kategori_size_id ? 'selected' : '' }}>

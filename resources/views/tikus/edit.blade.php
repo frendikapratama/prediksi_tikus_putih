@@ -12,7 +12,7 @@
                     <div class="form-group">
                         <label for="jenis_id" class="form-label">Jenis</label>
                         <select name="jenis_id" id="jenis_id" class="form-control text-light" required>
-                            <option value="">Select Jenis</option>
+                            <option value="">Pilih Jenis</option>
                             @foreach ($jenis as $item)
                                 <option value="{{ $item->id }}" {{ $item->id == $tikus->jenis_id ? 'selected' : '' }}>
                                     {{ $item->name }}
@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="kategori_size_id" class="form-label">Kategori Size</label>
                         <select name="kategori_size_id" id="kategori_size_id" class="form-control text-light" required>
-                            <option value="">Select Kategori Size</option>
+                            <option value="">Pilih Kategori Size</option>
                             @foreach ($kategoriSize as $item)
                                 <option value="{{ $item->id }}"
                                     {{ $item->id == $tikus->kategori_size_id ? 'selected' : '' }}>
