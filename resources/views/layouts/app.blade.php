@@ -125,25 +125,13 @@
                 </li>
 
                 <li class="nav-item menu-items">
-                    <a class="nav-link" data-toggle="collapse" href="#pakan" aria-expanded="false"
-                        aria-controls="pakan">
+                    <a class="nav-link" href="{{ route('pakan.index') }}">
                         <span class="menu-icon">
                             <i class="mdi mdi-gift"></i>
                         </span>
                         <span class="menu-title">Pakan</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="pakan">
-                        <ul class="nav flex-column sub-menu">
 
-                            <li class="nav-item"> <a class="nav-link" href="{{ route('tikus.index') }}">Kelola
-                                    Data Tikus</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ route('kategori.index') }}">Kategori
-                                    Size</a></li>
-                            <li class="nav-item"> <a class="nav-link" href="{{ route('jenis.index') }}">Jenis</a>
-                            </li>
-                        </ul>
-                    </div>
+                    </a>
                 </li>
 
             </ul>
