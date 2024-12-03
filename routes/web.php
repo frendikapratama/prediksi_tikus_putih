@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KategoriSizeController;
 use App\Http\Controllers\TikusController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -19,10 +21,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('auth')->name('dashboard');
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::resource('tikus', TikusController::class);
-Route::resource('kategori', KategoriSizeController::class);
-Route::resource('jenis', JenisController::class);
+// Route::resource('tikus', TikusController::class);
+// Route::resource('kategori', KategoriSizeController::class);
+// Route::resource('jenis', JenisController::class);
+
+// use App\Http\Controllers\AuthController;
+// use App\Http\Controllers\TikusController;
+// use App\Http\Controllers\KategoriSizeController;
+// use App\Http\Controllers\JenisController;
+
+// Routes untuk Login dan Logout (tanpa middleware)
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Routes yang memerlukan autentikasi
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+
+    Route::resource('tikus', TikusController::class);
+    Route::resource('kategori', KategoriSizeController::class);
+    Route::resource('jenis', JenisController::class);
+});

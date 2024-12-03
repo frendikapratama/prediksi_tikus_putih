@@ -29,9 +29,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="banyak">Total</label>
-                        <input type="number" class="form-control text-light" name="banyak" id="banyak"
-                            placeholder="Input Total" required>
+                        <label for="total_jantan">Total Jantan</label>
+                        <input type="number" class="form-control text-light" name="total_jantan" id="total_jantan"
+                            placeholder="Input Total" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="total_betina">Total Betina</label>
+                        <input type="number" class="form-control text-light" name="total_betina" id="total_betina"
+                            placeholder="Input Total"value="0">
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-dark">

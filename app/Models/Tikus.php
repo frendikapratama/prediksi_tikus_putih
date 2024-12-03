@@ -9,7 +9,7 @@ class Tikus extends Model
 {
     use HasFactory;
     protected $table = 'tikus';
-    protected $fillable = ['jenis_id', 'kategori_size_id', 'banyak'];
+    protected $fillable = ['jenis_id', 'kategori_size_id', 'total_jantan', 'total_betina'];
 
     public function jenis()
     {

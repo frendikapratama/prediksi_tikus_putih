@@ -20,7 +20,10 @@
                                 <th> No </th>
                                 <th> Jenis </th>
                                 <th> Kateogori size </th>
-                                <th> Jumlah Produksi Tikus </th>
+                                <th> Jumlah Jantan </th>
+                                <th> Jumlah Betina </th>
+                                <th> Total Tikus </th>
+                                <th> Periode </th>
                                 <th> Action </th>
                             </tr>
                         </thead>
@@ -34,7 +37,10 @@
                                     <td>
                                         {{ $item->kategoriSize->name }}
                                     </td>
-                                    <td> {{ $item->banyak }} </td>
+                                    <td> {{ $item->total_jantan }} </td>
+                                    <td> {{ $item->total_betina }} </td>
+                                    <td> {{ $item->total_jantan + $item->total_betina }} </td>
+                                    <td> {{ $item->created_at ? $item->created_at->format('F Y') : 'No Date' }}</td>
                                     <td> <a href="{{ route('tikus.edit', $item->id) }}" class="btn btn-warning btn-sm"><i
                                                 class="mdi mdi-border-color"></i></a>
                                         <form action="{{ route('tikus.destroy', $item->id) }}" method="POST"

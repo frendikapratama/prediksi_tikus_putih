@@ -37,17 +37,25 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="banyak" class="form-label">Banyak</label>
-                        <input type="number" name="banyak" id="banyak" class="form-control text-light"
-                            value="{{ $tikus->banyak }}" required>
+                        <label for="total_jantan" class="form-label">Total Jantan</label>
+                        <input type="number" name="total_jantan" id="total_jantan" class="form-control text-light"
+                            value="{{ $tikus->total_jantan }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="total_betina" class="form-label">Total Betina</label>
+                        <input type="number" name="total_betina" id="total_betina" class="form-control text-light"
+                            value="{{ $tikus->total_betina }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="created_at" class="form-label">Created At (Bulan dan Tahun)</label>
+                        <input type="month" name="created_at" id="created_at" class="form-control text-light"
+                            value="{{ $tikus->created_at->format('Y-m') }}" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Update Data</button>
-                    <button class="btn btn-dark">
-                        <a href="{{ route('tikus.index') }}" style="text-decoration: none;">
-                            Cancel
-                        </a>
-                    </button>
+                    <a href="{{ route('tikus.index') }}" class="btn btn-dark text-decoration-none">Cancel</a>
                 </form>
             </div>
         </div>
