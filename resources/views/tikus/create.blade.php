@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add Data Tikus')
-
 @section('content')
-
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -48,5 +45,4 @@
             </div>
         </div>
     </div>
-
 @endsection

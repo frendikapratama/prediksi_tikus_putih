@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Kelola Data Tikus')
-
 @section('content')
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -59,5 +57,4 @@
             </div>
         </div>
     </div>
-
 @endsection

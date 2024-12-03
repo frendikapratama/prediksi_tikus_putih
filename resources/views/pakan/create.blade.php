@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah Data Pakan')
-
 @section('content')
     <h1>Tambah Data Pakan</h1>
 
