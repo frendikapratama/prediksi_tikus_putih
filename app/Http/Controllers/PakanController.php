@@ -5,7 +5,7 @@ use App\Models\Pakan;
 use App\Models\Jenis;
 use App\Models\KategoriSize;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class PakanController extends Controller
 {
     public function index()
@@ -27,16 +27,23 @@ class PakanController extends Controller
         return redirect()->route('pakan.index')->with('success', 'Data Pakan berhasil ditambahkan.');
     }
 
-    public function edit(Pakan $pakan)
+    public function edit($id)
     {
+        $pakan = Pakan::find($id);
         $jenis = Jenis::all();
         $kategoriSize = KategoriSize::all();
         return view('pakan.edit', compact('pakan', 'jenis', 'kategoriSize'));
     }
 
-    public function update(Request $request, Pakan $pakan)
+    public function update(Request $request, $id)
     {
-        $pakan->update($request->all());
+        $pakan = Pakan::findOrFail($id);
+        $pakan->jenis_id = $request->jenis_id;
+        $pakan->kategori_size_id = $request->kategori_size_id;
+        $pakan->banyak_pakan_per_tikus = $request->banyak_pakan_per_tikus;
+        $pakan->jumlah_pemberian_pakan = $request->jumlah_pemberian_pakan;
+        $pakan->created_at = Carbon::createFromFormat('Y-m', $request->created_at)->startOfMonth();
+        $pakan->save();
         return redirect()->route('pakan.index')->with('success', 'Data Pakan berhasil diperbarui.');
     }
 

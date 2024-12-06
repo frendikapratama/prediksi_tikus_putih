@@ -3,7 +3,6 @@
 @section('title', 'Tambah Kategori Tikus')
 
 @section('content')
-
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -26,5 +25,4 @@
             </div>
         </div>
     </div>
-
 @endsection

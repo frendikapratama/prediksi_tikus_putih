@@ -3,9 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KategoriSizeController;
+use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PakanController;
 use App\Http\Controllers\TikusController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -37,4 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('kategori', KategoriSizeController::class);
     Route::resource('jenis', JenisController::class);
     Route::resource('pakan', PakanController::class);
+    Route::resource('keuangan', KeuanganController::class);
 });

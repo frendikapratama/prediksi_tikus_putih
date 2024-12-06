@@ -22,6 +22,7 @@
                                 <th>Kategori Size</th>
                                 <th>Banyak Pakan per Tikus (kg)</th>
                                 <th>Jumlah Pemberian Pakan Harian</th>
+                                <th>Periode</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -33,6 +34,7 @@
                                     <td>{{ $pakan->kategoriSize->name }}</td>
                                     <td>{{ $pakan->banyak_pakan_per_tikus }} kg</td>
                                     <td>{{ $pakan->jumlah_pemberian_pakan }} X/hari</td>
+                                    <td> {{ $pakan->created_at ? $pakan->created_at->format('F Y') : 'No Date' }}</td>
                                     <td>
                                         <a href="{{ route('pakan.edit', $pakan->id) }}" class="btn btn-warning btn-sm"><i
                                                 class="mdi mdi-border-color"></i></a>
