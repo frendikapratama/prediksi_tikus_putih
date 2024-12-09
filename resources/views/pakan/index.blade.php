@@ -20,7 +20,7 @@
                                 <th>#</th>
                                 <th>Jenis</th>
                                 <th>Kategori Size</th>
-                                <th>Banyak Pakan per Tikus (kg)</th>
+                                <th>Banyak Pakan per Tikus (g)</th>
                                 <th>Jumlah Pemberian Pakan Harian</th>
                                 <th>Periode</th>
                                 <th>Aksi</th>
@@ -32,7 +32,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $pakan->jenis->name }}</td>
                                     <td>{{ $pakan->kategoriSize->name }}</td>
-                                    <td>{{ $pakan->banyak_pakan_per_tikus }} kg</td>
+                                    <td>{{ $pakan->banyak_pakan_per_tikus }} g</td>
                                     <td>{{ $pakan->jumlah_pemberian_pakan }} X/hari</td>
                                     <td> {{ $pakan->created_at ? $pakan->created_at->format('F Y') : 'No Date' }}</td>
                                     <td>

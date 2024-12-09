@@ -35,9 +35,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="banyak_pakan_per_tikus">Banyak Pakan per Tikus (kg)</label>
+                        <label for="banyak_pakan_per_tikus">Banyak Pakan per Tikus (g)</label>
                         <input type="number" name="banyak_pakan_per_tikus" id="banyak_pakan_per_tikus"
-                            class="form-control text-light" value="{{ $pakan->banyak_pakan_per_tikus }}" required>
+                            class="form-control text-light" value="{{ $pakan->banyak_pakan_per_tikus }}" step="0.01"
+                            min="0" required>
                     </div>
 
                     <div class="form-group">
