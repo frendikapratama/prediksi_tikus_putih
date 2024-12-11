@@ -66,24 +66,23 @@ class WeatherForecastController extends Controller
     {
         // Ambil tanggal terakhir dari data cuaca di database
         $lastDate = WeatherForecast::orderBy('date', 'desc')->value('date');
-    
+
         // Hitung waktu hingga tombol dapat digunakan kembali
         $canFetch = true;
         $timeRemaining = null;
-    
+
         if ($lastDate) {
             $nextAvailableDate = Carbon::parse($lastDate)->addDays(1);
             $now = Carbon::now();
-    
+
             if ($now->lessThan($nextAvailableDate)) {
                 $canFetch = false;
                 $timeRemaining = $now->diffInSeconds($nextAvailableDate);
             }
         }
-    
-        $weatherData = WeatherForecast::all(); // Ambil semua data cuaca dari database
+
+        $weatherData = WeatherForecast::orderBy('date', 'desc')->paginate(10); // Use paginate() instead of get()
         return view('weather.index', compact('weatherData', 'canFetch', 'timeRemaining'));
     }
-    
 
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Tikus;
@@ -9,13 +9,25 @@ class TikusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     */
-    public function run(): void
-    {
-        Tikus::insert([
-            ['jenis_id' => 1, 'kategori_size_id' => 1, 'total_jantan' => 5,  'total_betina' =>30 ,'periode' => now()],
-            ['jenis_id' => 2, 'kategori_size_id' => 2, 'total_jantan' => 10, 'total_betina' =>20 , 'periode' => now()],
-            ['jenis_id' => 3, 'kategori_size_id' => 3, 'total_jantan' => 15, 'total_betina' =>10 , 'periode' => now()],
-        ]);
-    }
+     */public function run(): void
+        {
+            $data = [];
+
+            for ($i = 11; $i >= 0; $i--) {
+                $periode = Carbon::now()->subMonths($i)->format('Y-m');
+
+                $data[] = [
+                    'jenis_id' => rand(1, 3),
+                    'kategori_size_id' => rand(1, 3),
+                    'total_jantan' => rand(5, 20),
+                    'total_betina' => rand(10, 30),
+                    'periode' => $periode,
+                ];
+            }
+
+            // Debug: Print data to check
+
+            Tikus::insert($data);
+        }
+
 }

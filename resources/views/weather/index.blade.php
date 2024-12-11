@@ -38,6 +38,75 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- Pagination Controls -->
+                    <!-- Pagination Controls -->
+                    <div class="d-flex justify-content-center mt-4">
+                        <nav aria-label="Weather Data Pagination">
+                            <ul class="pagination">
+                                <!-- Previous Page Link -->
+                                @if ($weatherData->onFirstPage())
+                                    <li class="page-item disabled">
+                                        <span class="page-link">Previous</span>
+                                    </li>
+                                @else
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $weatherData->previousPageUrl() }}"
+                                            aria-label="Previous">
+                                            Previous
+                                        </a>
+                                    </li>
+                                @endif
+
+                                <!-- Always show Page 1 -->
+                                @if ($weatherData->currentPage() > 3)
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $weatherData->url(1) }}">1</a>
+                                    </li>
+                                    <li class="page-item disabled">
+                                        <span class="page-link">...</span>
+                                    </li>
+                                @endif
+
+                                <!-- Page Number Range (show a limited set of page numbers) -->
+                                @php
+                                    $currentPage = $weatherData->currentPage();
+                                    $lastPage = $weatherData->lastPage();
+                                    $range = 2; // Number of pages to show before and after the current page
+                                @endphp
+
+                                @for ($i = max(2, $currentPage - $range); $i <= min($lastPage - 1, $currentPage + $range); $i++)
+                                    <li class="page-item {{ $currentPage == $i ? 'active' : '' }}">
+                                        <a class="page-link" href="{{ $weatherData->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
+
+                                <!-- Always show the Last Page -->
+                                @if ($weatherData->currentPage() < $lastPage - 2)
+                                    <li class="page-item disabled">
+                                        <span class="page-link">...</span>
+                                    </li>
+                                    <li class="page-item">
+                                        <a class="page-link"
+                                            href="{{ $weatherData->url($lastPage) }}">{{ $lastPage }}</a>
+                                    </li>
+                                @endif
+
+                                <!-- Next Page Link -->
+                                @if ($weatherData->hasMorePages())
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $weatherData->nextPageUrl() }}" aria-label="Next">
+                                            Next
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="page-item disabled">
+                                        <span class="page-link">Next</span>
+                                    </li>
+                                @endif
+                            </ul>
+                        </nav>
+                    </div>
+
                 </div>
             </div>
         </div>
