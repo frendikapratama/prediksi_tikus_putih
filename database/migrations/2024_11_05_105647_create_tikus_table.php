@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('jenis_id')->constrained('jenis')->onDelete('cascade');
             $table->foreignId('kategori_size_id')->constrained('kategori_size')->onDelete('cascade');
-            $table->integer('total_jantan')->nullable();
-            $table->integer('total_betina')->nullable();
+            $table->integer('total_jantan');
+            $table->integer('total_betina');
+            $table->string('periode',7);
             $table->timestamps();
         });
     }

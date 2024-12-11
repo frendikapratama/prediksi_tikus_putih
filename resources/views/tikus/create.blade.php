@@ -35,6 +35,11 @@
                         <input type="number" class="form-control text-light" name="total_betina" id="total_betina"
                             placeholder="Input Total Betina">
                     </div>
+                    <div class="form-group">
+                        <label for="periode">Periode</label>
+                        <input type="month" class="form-control text-light" name="periode" id="periode"
+                            placeholder="Input ">
+                    </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-dark">
                         <a href="{{ route('tikus.index') }}" style="text-decoration: none;">

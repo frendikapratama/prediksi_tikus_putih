@@ -53,7 +53,7 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-laptop"></i>
                         </span>
-                        <span class="menu-title">Populasi Awal</span>
+                        <span class="menu-title">Populasi</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="populasiAwal">
@@ -64,6 +64,8 @@
                             <li class="nav-item"> <a class="nav-link" href="{{ route('kategori.index') }}">Kategori
                                     Size</a></li>
                             <li class="nav-item"> <a class="nav-link" href="{{ route('jenis.index') }}">Jenis</a>
+                            </li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('reproduksi') }}">Reproduksi</a>
                             </li>
                         </ul>
                     </div>

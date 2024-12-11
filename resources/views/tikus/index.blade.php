@@ -38,7 +38,7 @@
                                     <td> {{ $item->total_jantan }} </td>
                                     <td> {{ $item->total_betina }} </td>
                                     <td> {{ $item->total_jantan + $item->total_betina }} </td>
-                                    <td> {{ $item->created_at ? $item->created_at->format('F Y') : 'No Date' }}</td>
+                                    <td> {{ $item->periode }}</td>
                                     <td> <a href="{{ route('tikus.edit', $item->id) }}" class="btn btn-warning btn-sm"><i
                                                 class="mdi mdi-border-color"></i></a>
                                         <form action="{{ route('tikus.destroy', $item->id) }}" method="POST"

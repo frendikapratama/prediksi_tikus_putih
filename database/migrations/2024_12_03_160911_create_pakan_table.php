@@ -14,6 +14,7 @@ class CreatePakanTable extends Migration
             $table->foreignId('kategori_size_id')->constrained('kategori_size')->onDelete('cascade');
             $table->decimal('banyak_pakan_per_tikus', 8, 2);
             $table->integer('jumlah_pemberian_pakan'); // Jumlah pemberian
+            $table->string('periode',7);
             $table->timestamps();
         });
     }

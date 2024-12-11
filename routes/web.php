@@ -5,9 +5,11 @@ use App\Http\Controllers\JenisController;
 use App\Http\Controllers\KategoriSizeController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\PakanController;
+use App\Http\Controllers\ReproduksiController;
 use App\Http\Controllers\TikusController;
 use App\Http\Controllers\WeatherForecastController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -32,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('kategori', KategoriSizeController::class);
     Route::resource('jenis', JenisController::class);
     Route::resource('pakan', PakanController::class);
-    Route::resource('keuangan', KeuanganController::class);
+    Route::resource('keuangan', KeuanganController::class); 
     Route::get('/fetch-weather', [WeatherForecastController::class, 'fetchWeatherData'])->name('fetch-weather');
     Route::get('/cuaca', [WeatherForecastController::class, 'showWeatherPage'])->name('weather.index');
     Route::get('/add_user', [AuthController::class, 'add_user'])->name('add_user'); 
@@ -41,4 +43,6 @@ Route::middleware('auth')->group(function () {
     Route::get('//users/{id}', [AuthController::class, 'destroy'])->name('destroy');
     Route::get('/settings', [AuthController::class, 'settings'])->name('settings');
     Route::put('/update-password', [AuthController::class, 'updatePassword'])->name('updatePassword');
+
+    Route::get('/reproduksi', [ReproduksiController::class, 'index'])->name('reproduksi');
 });

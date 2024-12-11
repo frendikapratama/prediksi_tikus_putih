@@ -40,6 +40,12 @@
                             class="form-control text-light" placeholder="Input Jumlah Pemberian Pakan Harian" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="periode">Jumlah Pemberian Pakan Harian</label>
+                        <input type="month" name="periode" id="periode" class="form-control text-light"
+                            placeholder="Input " required>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>

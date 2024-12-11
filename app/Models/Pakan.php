@@ -9,7 +9,7 @@ class Pakan extends Model
 {
     use HasFactory;
     protected $table = 'pakan';
-    protected $fillable = ['jenis_id', 'kategori_size_id','banyak_pakan_per_tikus', 'jumlah_pemberian_pakan', 'banyak_pakan_per_tikus'];
+    protected $fillable = ['jenis_id', 'kategori_size_id','banyak_pakan_per_tikus', 'jumlah_pemberian_pakan', 'banyak_pakan_per_tikus', 'periode'];
 
     public function jenis()
     {

@@ -10,7 +10,15 @@ class PakanController extends Controller
 {
     public function index()
     {
-        $pakans = Pakan::with(['jenis', 'kategoriSize'])->get();
+
+        Carbon::setLocale('id'); 
+        $pakans = Pakan::with('jenis', 'kategoriSize')
+        ->orderBy('periode', 'desc')
+        ->get()
+        ->map(function ($item) {
+            $item->periode = Carbon::createFromFormat('Y-m', $item->periode)->translatedFormat('F Y');
+            return $item;
+        });
         return view('pakan.index', compact('pakans'));
     }
 
@@ -42,7 +50,7 @@ class PakanController extends Controller
         $pakan->kategori_size_id = $request->kategori_size_id;
         $pakan->banyak_pakan_per_tikus = $request->banyak_pakan_per_tikus;
         $pakan->jumlah_pemberian_pakan = $request->jumlah_pemberian_pakan;
-        $pakan->created_at = Carbon::createFromFormat('Y-m', $request->created_at)->startOfMonth();
+        $pakan->periode = $request->periode;
         $pakan->save();
         return redirect()->route('pakan.index')->with('success', 'Data Pakan berhasil diperbarui.');
     }

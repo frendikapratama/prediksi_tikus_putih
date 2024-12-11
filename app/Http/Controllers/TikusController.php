@@ -11,9 +11,17 @@ class TikusController extends Controller
 {
     public function index()
     {
-        $dataTikus = Tikus::with('jenis', 'kategoriSize')->get();
+        Carbon::setLocale('id'); 
+        $dataTikus = Tikus::with('jenis', 'kategoriSize')
+        ->orderBy('periode', 'desc')
+        ->get()
+        ->map(function ($item) {
+            $item->periode = Carbon::createFromFormat('Y-m', $item->periode)->translatedFormat('F Y');
+            return $item;
+        });
         return view('tikus.index', compact('dataTikus'));
     }
+    
 
     public function create()
     {
@@ -24,9 +32,6 @@ class TikusController extends Controller
 
     public function store(Request $request)
     {
-        $request->merge([
-            'created_at' => Carbon::now()->startOfMonth(), // Menetapkan awal bulan ini sebagai created_at
-        ]);
         Tikus::create($request->all());
         return redirect()->route('tikus.index');
     }
@@ -46,7 +51,7 @@ class TikusController extends Controller
         $tikus->kategori_size_id = $request->kategori_size_id;
         $tikus->total_jantan = $request->total_jantan;
         $tikus->total_betina = $request->total_betina;
-        $tikus->created_at = Carbon::createFromFormat('Y-m', $request->created_at)->startOfMonth();
+        $tikus->periode = $request->periode;
         $tikus->save();
         return redirect()->route('tikus.index');
     }

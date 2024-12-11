@@ -34,7 +34,7 @@
                                     <td>{{ $pakan->kategoriSize->name }}</td>
                                     <td>{{ $pakan->banyak_pakan_per_tikus }} g</td>
                                     <td>{{ $pakan->jumlah_pemberian_pakan }} X/hari</td>
-                                    <td> {{ $pakan->created_at ? $pakan->created_at->format('F Y') : 'No Date' }}</td>
+                                    <td>{{ $pakan->periode }} </td>
                                     <td>
                                         <a href="{{ route('pakan.edit', $pakan->id) }}" class="btn btn-warning btn-sm"><i
                                                 class="mdi mdi-border-color"></i></a>
