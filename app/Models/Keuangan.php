@@ -15,7 +15,8 @@ class Keuangan extends Model
         'biaya_pakan', 
         'biaya_lainnya', 
         'harga_pertikus', 
-        'pendapatan_bulanan'
+        'pendapatan_bulanan',
+        'periode'
     ];
 
     public function jenis()

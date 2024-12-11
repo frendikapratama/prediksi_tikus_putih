@@ -11,7 +11,15 @@ class KeuanganController extends Controller
 {
     public function index()
     {
-        $Keuangan = Keuangan::with('jenis', 'kategoriSize')->get();
+
+        Carbon::setLocale('id'); 
+        $Keuangan = Keuangan::with('jenis', 'kategoriSize')
+        ->orderBy('periode', 'desc')
+        ->get()
+        ->map(function ($item) {
+            $item->periode = Carbon::createFromFormat('Y-m', $item->periode)->translatedFormat('F Y');
+            return $item;
+        });
         return view('keuangan.index', compact('Keuangan'));
     }
     public function create()
@@ -47,7 +55,7 @@ class KeuanganController extends Controller
         $keuangan->biaya_lainnya = $request->biaya_lainnya;
         $keuangan->harga_pertikus = $request->harga_pertikus;
         $keuangan->pendapatan_bulanan = $request->pendapatan_bulanan;
-        $keuangan->created_at = Carbon::createFromFormat('Y-m', $request->created_at)->startOfMonth();
+        $keuangan->periode = $request->periode;
         $keuangan->save();
         return redirect()->route('keuangan.index')->with('success', 'Data keuangan berhasil diperbarui.');
     }

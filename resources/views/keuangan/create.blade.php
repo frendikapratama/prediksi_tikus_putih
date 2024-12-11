@@ -49,6 +49,11 @@
                         <input type="number" name="pendapatan_bulanan" id="pendapatan_bulanan"
                             class="form-control text-light" placeholder="Input biaya lainnya" required>
                     </div>
+                    <div class="form-group">
+                        <label for="periode">Periode</label>
+                        <input type="month" name="periode" id="periode" class="form-control text-light"
+                            placeholder="Input biaya lainnya" required>
+                    </div>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>

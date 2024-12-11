@@ -8,7 +8,7 @@
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-primary btn-icon-text"
                         onclick="window.location.href='{{ route('keuangan.create') }}'">
-                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Tambah Kategori
+                        <i class="mdi mdi-file-check btn-icon-prepend"></i> Tambah Data Keuangan
                     </button>
                 </div>
                 <div class="table-responsive">
@@ -38,7 +38,7 @@
                                     <td>{{ $item->biaya_lainnya }}</td>
                                     <td>{{ $item->harga_pertikus }}</td>
                                     <td>{{ $item->pendapatan_bulanan }}</td>
-                                    <td> {{ $item->created_at ? $item->created_at->format('F Y') : 'No Date' }}</td>
+                                    <td>{{ $item->periode }}</td>
                                     <td>
                                         <a href="{{ route('keuangan.edit', $item->id) }}" class="btn btn-warning btn-sm">
                                             <i class="mdi mdi-border-color"></i></a>

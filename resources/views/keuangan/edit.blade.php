@@ -60,9 +60,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="created_at" class="form-label">Created At (Bulan dan Tahun)</label>
-                        <input type="month" name="created_at" id="created_at" class="form-control text-light"
-                            value="{{ $keuangan->created_at->format('Y-m') }}" required>
+                        <label for="periode" class="form-label">Periode (Bulan dan Tahun)</label>
+                        <input type="month" name="periode" id="periode" class="form-control text-light"
+                            value="{{ $keuangan->periode }}" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary mr-2">Update Data</button>

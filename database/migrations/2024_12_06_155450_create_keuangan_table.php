@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('biaya_lainnya'); // Biaya lainnya
             $table->integer('harga_pertikus'); // Harga jual per tikus
             $table->integer('pendapatan_bulanan'); // Pendapatan per bulan
+            $table->string('periode',7);
             $table->timestamps();
         });
     }
