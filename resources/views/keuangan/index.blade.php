@@ -43,7 +43,7 @@
                                         <a href="{{ route('keuangan.edit', $item->id) }}" class="btn btn-warning btn-sm">
                                             <i class="mdi mdi-border-color"></i></a>
                                         <form action="{{ route('keuangan.destroy', $item->id) }}" method="POST"
-                                            style="display:inline;">
+                                            onsubmit="return confirm('Apakah Anda Yakin ?')" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"><i

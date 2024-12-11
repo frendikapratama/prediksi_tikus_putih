@@ -6,9 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\View;
 class AuthController extends Controller
 {
+
+    public function __construct()
+    {
+        if (Auth::check()) {
+            View::share('user', Auth::user());
+        }
+    
+    }
     public function showLoginForm()
     {
         return view('login');
@@ -47,10 +55,10 @@ class AuthController extends Controller
     {
         // Mengambil seluruh data user dari database
         $users = User::all();
-
         // Mengirim data users ke view
         return view('auth.index', compact('users'));
     }
+    
     
     public function storeUser(Request $request)
     {
@@ -83,7 +91,6 @@ class AuthController extends Controller
         return view('auth.add_user'); // Pastikan file view ada di resources/views/add_user.blade.php
     }
     
-
     public function updatePassword(Request $request)
     {
         $request->validate([
@@ -103,4 +110,15 @@ class AuthController extends Controller
 
         return redirect('/settings')->with('success', 'Password updated successfully.');
     }
+
+    
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        // Delete the user
+        $user->delete();
+        // Redirect with success message
+        return redirect()->route('auth.index')->with('success', 'User berhasil dihapus.');
+    }
+    
 }

@@ -35,11 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::resource('keuangan', KeuanganController::class);
     Route::get('/fetch-weather', [WeatherForecastController::class, 'fetchWeatherData'])->name('fetch-weather');
     Route::get('/cuaca', [WeatherForecastController::class, 'showWeatherPage'])->name('weather.index');
-
-
-    Route::get('/add_user', [AuthController::class, 'add_user'])->name('add_user'); // Menampilkan formulir
-    Route::post('/add-user', [AuthController::class, 'storeUser'])->name('storeUser'); // Menangani submit formulir
+    Route::get('/add_user', [AuthController::class, 'add_user'])->name('add_user'); 
+    Route::post('/add-user', [AuthController::class, 'storeUser'])->name('storeUser'); 
+    Route::get('/users', [AuthController::class, 'index'])->name('users');
+    Route::get('//users/{id}', [AuthController::class, 'destroy'])->name('destroy');
     Route::get('/settings', [AuthController::class, 'settings'])->name('settings');
     Route::put('/update-password', [AuthController::class, 'updatePassword'])->name('updatePassword');
-    Route::get('/users', [AuthController::class, 'index'])->name('users');
 });

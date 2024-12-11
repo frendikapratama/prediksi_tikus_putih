@@ -39,24 +39,6 @@
             </div>
 
             <ul class="nav">
-                <li class="nav-item profile">
-                    <div class="profile-desc">
-                        <div class="profile-pic">
-                            <div class="count-indicator">
-                                <img class="img-xs rounded-circle " src="{{ asset('assets/images/faces/face15.jpg') }}"
-                                    alt="">
-                                <span class="count bg-success"></span>
-                            </div>
-                            <div class="profile-name">
-                                <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
-                                <span>Gold Member</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="nav-item nav-category">
-                    <span class="nav-link">Navigation</span>
-                </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" href="{{ route('dashboard') }}">
                         <span class="menu-icon">
@@ -148,11 +130,15 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">
-                                    <img class="img-xs rounded-circle "
-                                        src="{{ asset('assets/images/faces/face15.jpg') }}"
-                                        class="mb-0 d-none d-sm-block navbar-profile-name ">
+                                    @if (Auth::check() && Auth::user()->photo)
+                                        <img class="img-xs rounded-circle"
+                                            src="{{ asset('storage/' . Auth::user()->photo) }}" alt="">
+                                    @else
+                                        <img class="img-xs rounded-circle"
+                                            src="{{ asset('assets/images/faces/face15.jpg') }}" alt="">
+                                    @endif
                                     <div class="mx-2">
-                                        Henry Klein
+                                        {{ Auth::user()->name }}
                                     </div>
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>

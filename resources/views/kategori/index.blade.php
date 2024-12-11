@@ -32,7 +32,7 @@
                                         <a href="{{ route('kategori.edit', $item->id) }}" class="btn btn-warning btn-sm"><i
                                                 class="mdi mdi-border-color"></i></a>
                                         <form action="{{ route('kategori.destroy', $item->id) }}" method="POST"
-                                            style="display:inline;">
+                                            style="display:inline;" onsubmit="return confirm('Apakah Anda Yakin ?')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm"><i
