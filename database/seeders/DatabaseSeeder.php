@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             KeuanganSeeder::class,
             PakanSeeder::class,
             WeatherForecastSeeder::class,
+            ReproduksiSeeder::class,
         ]);
     }
 }

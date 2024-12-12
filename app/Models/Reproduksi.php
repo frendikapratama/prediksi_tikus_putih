@@ -9,5 +9,15 @@ class Reproduksi extends Model
 {
     use HasFactory;
     protected $table = 'reproduksi';
-    protected $fillable = ['total_reproduksi','total_mati','periode'];
+    protected $fillable = ['jenis_id', 'kategori_size_id','total_reproduksi','total_mati','periode'];
+
+    public function jenis()
+    {
+        return $this->belongsTo(Jenis::class);
+    }
+
+    public function kategoriSize()
+    {
+        return $this->belongsTo(KategoriSize::class);
+    }
 }

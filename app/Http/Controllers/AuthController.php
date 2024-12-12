@@ -118,7 +118,7 @@ class AuthController extends Controller
         // Delete the user
         $user->delete();
         // Redirect with success message
-        return redirect()->route('auth.index')->with('success', 'User berhasil dihapus.');
+        return redirect()->route('users')->with('success', 'User berhasil dihapus.');
     }
     
 }

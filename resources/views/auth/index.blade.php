@@ -37,7 +37,7 @@
                                     </td>
                                     <td>
 
-                                        <form action="{{ route('destroy', $user->id) }}" method="POST"
+                                        <form action="{{ route('destroyUser', $user->id) }}" method="POST"
                                             onsubmit="return confirm('Apakah Anda Yakin?')">
                                             @csrf
                                             @method('DELETE')

@@ -30,19 +30,31 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // Routes yang memerlukan autentikasi
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard');
+    
     Route::resource('tikus', TikusController::class);
+    
     Route::resource('kategori', KategoriSizeController::class);
+    
     Route::resource('jenis', JenisController::class);
+    
     Route::resource('pakan', PakanController::class);
+    
     Route::resource('keuangan', KeuanganController::class); 
+    
     Route::get('/fetch-weather', [WeatherForecastController::class, 'fetchWeatherData'])->name('fetch-weather');
     Route::get('/cuaca', [WeatherForecastController::class, 'showWeatherPage'])->name('weather.index');
+    
     Route::get('/add_user', [AuthController::class, 'add_user'])->name('add_user'); 
     Route::post('/add-user', [AuthController::class, 'storeUser'])->name('storeUser'); 
     Route::get('/users', [AuthController::class, 'index'])->name('users');
-    Route::get('//users/{id}', [AuthController::class, 'destroy'])->name('destroy');
+    Route::delete('/users/{id}', [AuthController::class, 'destroy'])->name('destroyUser');
     Route::get('/settings', [AuthController::class, 'settings'])->name('settings');
     Route::put('/update-password', [AuthController::class, 'updatePassword'])->name('updatePassword');
 
     Route::get('/reproduksi', [ReproduksiController::class, 'index'])->name('reproduksi');
+    Route::get('/reproduksi/add', [ReproduksiController::class, 'create'])->name('reproduksiAdd');
+    Route::post('/reproduksi/add', [ReproduksiController::class, 'store'])->name('storeReproduksi');
+    Route::get('/reproduksi/edit/{id}', [ReproduksiController::class, 'edit'])->name('reproduksiEdit');
+    Route::put('/reproduksi/edit/{id}', [ReproduksiController::class, 'update'])->name('reproduksiUpdate');
+    Route::delete('/reproduksi/{id}', [ReproduksiController::class, 'destroy'])->name('destroy');
 });
