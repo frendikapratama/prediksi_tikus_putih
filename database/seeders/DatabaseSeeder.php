@@ -16,8 +16,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             JenisSeeder::class,
             KategoriSizeSeeder::class,
-            // TikusSeeder::class,
-            // KeuanganSeeder::class,
+            TikusSeeder::class,
+            KeuanganSeeder::class,
+            PakanSeeder::class,
+            WeatherForecastSeeder::class,
         ]);
     }
 }

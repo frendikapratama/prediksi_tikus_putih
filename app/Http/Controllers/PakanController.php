@@ -10,15 +10,19 @@ class PakanController extends Controller
 {
     public function index()
     {
-
-        Carbon::setLocale('id'); 
+        Carbon::setLocale('id');
+    
+        // Ambil data paginasi dan modifikasi langsung dengan transform()
         $pakans = Pakan::with('jenis', 'kategoriSize')
-        ->orderBy('periode', 'desc')
-        ->get()
-        ->map(function ($item) {
+            ->orderBy('periode', 'desc')
+            ->paginate(10);
+    
+        // Transform data langsung dalam koleksi
+        $pakans->getCollection()->transform(function ($item) {
             $item->periode = Carbon::createFromFormat('Y-m', $item->periode)->translatedFormat('F Y');
             return $item;
         });
+    
         return view('pakan.index', compact('pakans'));
     }
 

@@ -7,18 +7,25 @@ use App\Models\Tikus;
 use App\Models\KategoriSize;
 use App\Models\Jenis;
 use Carbon\Carbon;
+
 class TikusController extends Controller
 {
+
     public function index()
     {
-        Carbon::setLocale('id'); 
+        Carbon::setLocale('id');
+    
+        // Ambil data paginasi dan modifikasi langsung dengan transform()
         $dataTikus = Tikus::with('jenis', 'kategoriSize')
-        ->orderBy('periode', 'desc')
-        ->get()
-        ->map(function ($item) {
+            ->orderBy('periode', 'desc')
+            ->paginate(10);
+    
+        // Transform data langsung dalam koleksi
+        $dataTikus->getCollection()->transform(function ($item) {
             $item->periode = Carbon::createFromFormat('Y-m', $item->periode)->translatedFormat('F Y');
             return $item;
         });
+    
         return view('tikus.index', compact('dataTikus'));
     }
     

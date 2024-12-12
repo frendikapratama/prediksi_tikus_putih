@@ -51,6 +51,70 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <nav aria-label="Weather Data Pagination">
+                        <ul class="pagination">
+                            <!-- Previous Page Link -->
+                            @if ($pakans->onFirstPage())
+                                <li class="page-item disabled">
+                                    <span class="page-link">Previous</span>
+                                </li>
+                            @else
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $pakans->previousPageUrl() }}" aria-label="Previous">
+                                        Previous
+                                    </a>
+                                </li>
+                            @endif
+
+                            <!-- Always show Page 1 -->
+                            @if ($pakans->currentPage() > 3)
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $pakans->url(1) }}">1</a>
+                                </li>
+                                <li class="page-item disabled">
+                                    <span class="page-link">...</span>
+                                </li>
+                            @endif
+
+                            <!-- Page Number Range (show a limited set of page numbers) -->
+                            @php
+                                $currentPage = $pakans->currentPage();
+                                $lastPage = $pakans->lastPage();
+                                $range = 2; // Number of pages to show before and after the current page
+                            @endphp
+
+                            @for ($i = max(2, $currentPage - $range); $i <= min($lastPage - 1, $currentPage + $range); $i++)
+                                <li class="page-item {{ $currentPage == $i ? 'active' : '' }}">
+                                    <a class="page-link" href="{{ $pakans->url($i) }}">{{ $i }}</a>
+                                </li>
+                            @endfor
+
+                            <!-- Always show the Last Page -->
+                            @if ($pakans->currentPage() < $lastPage - 2)
+                                <li class="page-item disabled">
+                                    <span class="page-link">...</span>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $pakans->url($lastPage) }}">{{ $lastPage }}</a>
+                                </li>
+                            @endif
+
+                            <!-- Next Page Link -->
+                            @if ($pakans->hasMorePages())
+                                <li class="page-item">
+                                    <a class="page-link" href="{{ $pakans->nextPageUrl() }}" aria-label="Next">
+                                        Next
+                                    </a>
+                                </li>
+                            @else
+                                <li class="page-item disabled">
+                                    <span class="page-link">Next</span>
+                                </li>
+                            @endif
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>

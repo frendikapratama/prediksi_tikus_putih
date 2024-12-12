@@ -13,7 +13,7 @@ class TikusSeeder extends Seeder
         {
             $data = [];
 
-            for ($i = 11; $i >= 0; $i--) {
+            for ($i = 20; $i >= 0; $i--) {
                 $periode = Carbon::now()->subMonths($i)->format('Y-m');
 
                 $data[] = [
