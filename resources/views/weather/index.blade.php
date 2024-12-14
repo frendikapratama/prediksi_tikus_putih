@@ -5,7 +5,7 @@
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Cuaca</h4>
+                    <h4 class="card-title">Data Cuaca Harian</h4>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-primary btn-icon-text" id="fetchWeatherButton"
                             onclick="window.location.href='{{ route('fetch-weather') }}'" {{ $canFetch ? '' : 'disabled' }}>
@@ -38,7 +38,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- Pagination Controls -->
                     <!-- Pagination Controls -->
                     <div class="d-flex justify-content-center mt-4">
                         <nav aria-label="Weather Data Pagination">

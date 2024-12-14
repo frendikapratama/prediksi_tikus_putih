@@ -43,7 +43,13 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/fetch-weather', [WeatherForecastController::class, 'fetchWeatherData'])->name('fetch-weather');
     Route::get('/cuaca', [WeatherForecastController::class, 'showWeatherPage'])->name('weather.index');
-    
+    Route::get('/fetch-weather', [WeatherForecastController::class, 'fetchWeatherData'])->name('fetch-weather');
+    Route::get('/cuaca/bulanan', [WeatherForecastController::class, 'index'])->name('bulanan');
+    Route::get('/calculate-monthly-averages', [WeatherForecastController::class, 'calculateMonthlyAverages']);
+    Route::get('/monthly-averages', [WeatherForecastController::class, 'showMonthlyAverages']);
+    Route::get('/recalculate-monthly-averages', [WeatherForecastController::class, 'recalculateMonthlyAverages'])
+    ->name('recalculate.monthly.averages');
+
     Route::get('/add_user', [AuthController::class, 'add_user'])->name('add_user'); 
     Route::post('/add-user', [AuthController::class, 'storeUser'])->name('storeUser'); 
     Route::get('/users', [AuthController::class, 'index'])->name('users');
@@ -57,4 +63,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/reproduksi/edit/{id}', [ReproduksiController::class, 'edit'])->name('reproduksiEdit');
     Route::put('/reproduksi/edit/{id}', [ReproduksiController::class, 'update'])->name('reproduksiUpdate');
     Route::delete('/reproduksi/{id}', [ReproduksiController::class, 'destroy'])->name('destroy');
+
+
 });

@@ -90,15 +90,27 @@
                     </a>
                 </li>
 
+
                 <li class="nav-item menu-items">
-                    <a class="nav-link" href="{{ route('weather.index') }}">
+                    <a class="nav-link" data-toggle="collapse" href="#Datacuaca" aria-expanded="false"
+                        aria-controls="Datacuaca">
                         <span class="menu-icon">
                             <i class="mdi mdi-calendar"></i>
                         </span>
                         <span class="menu-title">Cuaca</span>
+                        <i class="menu-arrow"></i>
                     </a>
-                </li>
+                    <div class="collapse" id="Datacuaca">
+                        <ul class="nav flex-column sub-menu">
 
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('weather.index') }}">
+                                    Harian</a></li>
+                            <li class="nav-item"> <a class="nav-link" href="{{ route('bulanan') }}">Rata-Rata
+                                    Bulanan</a></li>
+
+                        </ul>
+                    </div>
+                </li>
 
 
                 <li class="nav-item menu-items">

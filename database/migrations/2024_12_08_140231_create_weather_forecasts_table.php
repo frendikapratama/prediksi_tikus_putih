@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('city');
             $table->date('date');
             $table->decimal('temperature', 5, 2); // Example: 25.32 °C
-            $table->string('weather_condition'); // Example: Rainy, Sunny
             $table->timestamps();
         });
     }

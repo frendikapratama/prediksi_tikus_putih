@@ -14,13 +14,9 @@ class TikusController extends Controller
     public function index()
     {
         Carbon::setLocale('id');
-    
-        // Ambil data paginasi dan modifikasi langsung dengan transform()
         $dataTikus = Tikus::with('jenis', 'kategoriSize')
             ->orderBy('periode', 'desc')
             ->paginate(10);
-    
-        // Transform data langsung dalam koleksi
         $dataTikus->getCollection()->transform(function ($item) {
             $item->periode = Carbon::createFromFormat('Y-m', $item->periode)->translatedFormat('F Y');
             return $item;

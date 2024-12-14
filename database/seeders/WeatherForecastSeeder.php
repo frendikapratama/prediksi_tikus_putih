@@ -27,7 +27,6 @@ class WeatherForecastSeeder extends Seeder
                     'city' => 'Bandung',
                     'date' => $date->format('Y-m-d'),
                     'temperature' => rand(1800, 3200) / 100, // Random temperature between 18.00 and 32.00 °C
-                    'weather_condition' => $weatherConditions[array_rand($weatherConditions)], // Random condition
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];
