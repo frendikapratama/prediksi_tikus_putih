@@ -22,18 +22,6 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label for="kategori_size_id" class="form-label">Kategori Size</label>
-                        <select name="kategori_size_id" id="kategori_size_id" class="form-control text-light" required>
-                            <option value="">Pilih Kategori Size</option>
-                            @foreach ($kategoriSize as $item)
-                                <option value="{{ $item->id }}"
-                                    {{ $item->id == $reproduksi->kategori_size_id ? 'selected' : '' }}>
-                                    {{ $item->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
 
                     <div class="form-group">
                         <label for="total_reproduksi"> <label for="total_reproduksi">Total Hasil Reproduksi</label>

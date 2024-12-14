@@ -19,7 +19,6 @@
                             <tr>
                                 <th>#</th>
                                 <th>Jenis</th>
-                                <th>Kategori Size</th>
                                 <th>Total Hasil Reproduksi</th>
                                 <th>Total Kematian</th>
                                 <th>Periode</th>
@@ -31,7 +30,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $reproduksi->jenis->name }}</td>
-                                    <td>{{ $reproduksi->kategoriSize->name }}</td>
                                     <td>{{ $reproduksi->total_reproduksi }} </td>
                                     <td>{{ $reproduksi->total_mati }} </td>
                                     <td>{{ $reproduksi->periode }} </td>

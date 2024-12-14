@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('reproduksi', function (Blueprint $table) {
             $table->id();  // Kolom ID unik
             $table->foreignId('jenis_id')->constrained('jenis')->onDelete('cascade');
-            $table->foreignId('kategori_size_id')->constrained('kategori_size')->onDelete('cascade');
             $table->integer('total_reproduksi');  // Total reproduksi bulan ini
             $table->integer('total_mati');  // Total kematian bulan ini
             $table->string('periode',7);

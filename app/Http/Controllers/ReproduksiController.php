@@ -13,7 +13,7 @@ class ReproduksiController extends Controller
         Carbon::setLocale('id');
     
         // Ambil data paginasi dan modifikasi langsung dengan transform()
-        $reproduksis = Reproduksi::with('jenis', 'kategoriSize')
+        $reproduksis = Reproduksi::with('jenis',)
             ->orderBy('periode', 'desc')
             ->paginate(10);
     
@@ -29,8 +29,7 @@ class ReproduksiController extends Controller
     public function create()
     {
         $jenis = Jenis::all();
-        $kategoriSize = KategoriSize::all();
-        return view('reproduksi.create', compact('jenis', 'kategoriSize'));
+        return view('reproduksi.create', compact('jenis', ));
     }
 
     public function store(Request $request)
@@ -43,20 +42,18 @@ class ReproduksiController extends Controller
     {
         $reproduksi = Reproduksi::find($id);
         $jenis = Jenis::all();
-        $kategoriSize = KategoriSize::all();
     
         if (!$reproduksi) {
             return redirect()->route('reproduksi.index')->with('error', 'Data tidak ditemukan');
         }
     
-        return view('reproduksi.edit', compact('reproduksi', 'jenis', 'kategoriSize'));
+        return view('reproduksi.edit', compact('reproduksi', 'jenis'));
     }
 
     public function update(Request $request, $id)
     {
         $reproduksi = Reproduksi::findOrFail($id);
         $reproduksi->jenis_id = $request->jenis_id;
-        $reproduksi->kategori_size_id = $request->kategori_size_id;
         $reproduksi->total_reproduksi = $request->total_reproduksi;
         $reproduksi->total_mati = $request->total_mati;
         $reproduksi->periode = $request->periode;

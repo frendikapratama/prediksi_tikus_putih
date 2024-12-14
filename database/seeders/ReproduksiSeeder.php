@@ -13,12 +13,11 @@ class ReproduksiSeeder extends Seeder
         {
             $data = [];
 
-            for ($i = 20; $i >= 0; $i--) {
+            for ($i = 11; $i >= 0; $i--) {
                 $periode = Carbon::now()->subMonths($i)->format('Y-m');
 
                 $data[] = [
                     'jenis_id' => rand(1, 3),
-                    'kategori_size_id' => rand(1, 3),
                     'total_reproduksi' => rand(5, 20),
                     'total_mati' => rand(10, 30),
                     'periode' => $periode,
